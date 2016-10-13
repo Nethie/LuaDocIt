@@ -1,0 +1,5 @@
+LuaDocIt Viewer is a quick tool for generation of Lua documentation.
+
+It does not currently allow for browing without PHP installed, but hopefully people who use it will also use webhosting.
+
+Credits to Neth.
