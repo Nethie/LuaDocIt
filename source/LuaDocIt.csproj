@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="LuaDocIt.cs" />
     <Compile Include="LuaFile.cs" />
+    <Compile Include="LuaHook.cs" />
     <Compile Include="LuaFunction.cs" />
     <Compile Include="StylishForms.cs">
       <SubType>Form</SubType>

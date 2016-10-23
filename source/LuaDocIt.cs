@@ -26,6 +26,10 @@ namespace LuaDocIt
                 {
                     json = json + files[n].Functions[f].GenerateJson() + ",";
                 }
+                for (int f = 0; f < files[n].Hooks.Length; f++)
+                {
+                    json = json + files[n].Hooks[f].GenerateJson() + ",";
+                }
             }
             json = json.TrimEnd(',');
             json = json + "]";
@@ -128,7 +132,7 @@ namespace LuaDocIt
 
                     Label total = new Label();
                     total.AutoSize = true;
-                    total.Text = $"Total: {luaFileObj[i].Functions.Length}";
+                    total.Text = $"Elements: {luaFileObj[i].Functions.Length + luaFileObj[i].Hooks.Length}";
                     total.ForeColor = Color.Blue;
                     total.Parent = fileTreePanel;
                     total.Top = 10 + 29 * i;
@@ -143,11 +147,19 @@ namespace LuaDocIt
                         }
                     }
 
-                    int badf = luaFileObj[i].Functions.Length - goodf;
+                    for (int f = 0; f < luaFileObj[i].Hooks.Length; f++)
+                    {
+                        if (luaFileObj[i].Hooks[f].param.Count > 0)
+                        {
+                            goodf++;
+                        }
+                    }
+
+                    int badf = luaFileObj[i].Functions.Length + luaFileObj[i].Hooks.Length - goodf;
 
                     Label good = new Label();
                     good.AutoSize = true;
-                    good.Text = goodf > 0 ? $"Good: {goodf}" : "";
+                    good.Text = goodf > 0 ? $"To-Document: {goodf}" : "";
                     good.ForeColor = Color.Green;
                     good.Parent = fileTreePanel;
                     good.Top = 10 + 29 * i;
@@ -155,7 +167,7 @@ namespace LuaDocIt
 
                     Label bad = new Label();
                     bad.AutoSize = true;
-                    bad.Text = badf > 0 ? $"Bad: {badf}" : "";
+                    bad.Text = badf > 0 ? $"To-Skip: {badf}" : "";
                     bad.ForeColor = Color.Red;
                     bad.Parent = fileTreePanel;
                     bad.Top = 10 + 29 * i;
