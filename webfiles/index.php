@@ -20,7 +20,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="stylish.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://atomik.info/compiled/js/LuaDoc.min.js"></script>
+	<script src="script.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 	</head>
 	<body>
